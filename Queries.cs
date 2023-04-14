@@ -270,4 +270,29 @@ internal static class Queries
             Console.WriteLine(item);
         }
     }
+
+    public static void OrderJoinQueryResult()
+    {
+        var query =
+            from category in s_categories
+            join product in s_products on category.ID equals product.CategoryID into prodGroup
+            orderby category.Name
+            select new
+            {
+                Category = category.Name,
+                Products =
+                from prod in prodGroup
+                orderby prod.Name
+                select prod
+            };
+
+        foreach (var productGroup in query)
+        {
+            Console.WriteLine(productGroup.Category);
+            foreach (var prodItem in productGroup.Products)
+            {
+                Console.WriteLine($"  {prodItem.Name,-10} {prodItem.CategoryID}");
+            }
+        }
+    }
 }
