@@ -1,12 +1,12 @@
-﻿using System;
-
-namespace LINQ;
+﻿namespace LINQ;
 internal static class InitializeData
 {
     public static List<Person> s_people;
     public static List<Pet> s_pets;
     public static List<Student> s_students;
     public static List<Employee> s_employees;
+    public static List<Category> s_categories;
+    public static List<Product> s_products;
     static InitializeData()
     {
         List<Person> people = new();
@@ -90,9 +90,9 @@ internal static class InitializeData
             GradeLevel.FourthYear,
             new() { 96, 85, 91, 60 }
             ),
-            new(FirstName: "Vernette", LastName: "Price", StudentID: 9562),
-            new("Terry", "Earls", 9870),
-            new("Terry", "Adams", 9913)
+            //new(FirstName: "Vernette", LastName: "Price", StudentID: 9562),
+            //new("Terry", "Earls", 9870),
+            //new("Terry", "Adams", 9913),
         };
 
         s_employees= new List<Employee>()
@@ -101,6 +101,27 @@ internal static class InitializeData
             new("Charlotte", "Weiss", 204467),
             new("Magnus", "Hedland", 866200),
             new("Vernette", "Price", 437139)
+        };
+
+        s_categories = new List<Category>()
+        {
+            new(Name: "Beverages", ID: 001),
+            new("Condiments", 002),
+            new("Vegetables", 003),
+            new("Grains", 004),
+            new("Fruit", 005)
+        };
+
+        s_products = new List<Product>()
+        {
+            new(Name: "Cola", CategoryID: 001),
+            new("Tea", 001),
+            new("Mustard", 002),
+            new("Pickles", 002),
+            new("Carrots", 003),
+            new("Bok Choy", 003),
+            new("Peaches", 005),
+            new("Melons", 005),
         };
     }
 }
