@@ -217,6 +217,71 @@ internal static class Queries
         }
     }
 
+    public static void GroupJoin2()
+    {
+        var query =
+            from category in s_categories
+            join product in s_products on category.ID equals product.CategoryID into prodGroup
+            select prodGroup;
+        int totalItems = 0;
+        foreach (var prodGrouping in query)
+        {
+            Console.WriteLine("Group:");
+            foreach (var item in prodGrouping)
+            {
+                totalItems++;
+                Console.WriteLine($"{item.Name,-10}{item.CategoryID}");
+            }
+        }
+        Console.WriteLine($"Unshaped GroupJoin: {totalItems} items in {query.Count()} unnamed groups");
+        Console.WriteLine(System.Environment.NewLine);
+    }
+
+    public static void GroupJoin3()
+    {
+        var query =
+            from category in s_categories
+            join product in s_products on category.ID equals product.CategoryID into prodGroup
+            from prod in prodGroup
+            orderby prod.CategoryID
+            select new
+            {
+                Category = prod,
+                ProductName = prod.Name
+            };
+        int totalItems = 0;
+
+        Console.WriteLine("GroupJoin3:");
+        foreach (var item in query)
+        {
+            totalItems++;
+            Console.WriteLine($"   {item.ProductName}:{item.Category}" );
+        }
+
+        Console.WriteLine($"GroupJoin3: {totalItems} items in 1 group") ;
+        Console.WriteLine(System.Environment.NewLine);
+    }
+
+    public static void GroupJoin4()
+    {
+        var query =
+            from product in s_products
+            join category in s_categories on product.CategoryID equals category.ID into prodGroup
+            select new
+            {
+                Category = prodGroup,
+                ProductName = product.Name
+            };
+        foreach (var item in query)
+        {
+            Console.WriteLine(item.ProductName);
+            foreach (var item1 in item.Category)
+            {
+                Console.WriteLine(item1);
+            }
+        }
+    }
+
     public static void XMLQuery()
     {
         XElement ownersAndPets = new("PetOwners",

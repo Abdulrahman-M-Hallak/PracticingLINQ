@@ -28,7 +28,11 @@ internal class Program
 
         //Console.WriteLine("**************************************");
         //Queries.HighestScoreQuery();
-        Console.WriteLine("****************************************");
-        Queries.OrderJoinQueryResult();
+        //Console.WriteLine("****************************************");
+        //Queries.OrderJoinQueryResult();
+        Console.WriteLine("Group join");
+        Queries.GroupJoin();
+        Console.WriteLine("Join");
+        Queries.GroupJoin4();
     }
 }
