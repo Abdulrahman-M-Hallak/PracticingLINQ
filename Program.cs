@@ -28,11 +28,13 @@ internal class Program
 
         //Console.WriteLine("**************************************");
         //Queries.HighestScoreQuery();
-        //Console.WriteLine("****************************************");
+        //Console.WriteLine("***************************************");
         //Queries.OrderJoinQueryResult();
         Console.WriteLine("Group join");
         Queries.GroupJoin();
         Console.WriteLine("Join");
-        Queries.GroupJoin4();
+        Queries.OrderJoinQueryResult();
+        Console.WriteLine("*****************************************");
+        Queries.NonEquiJoin();
     }
 }

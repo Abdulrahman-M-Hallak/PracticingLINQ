@@ -1,4 +1,5 @@
-﻿using System.Xml.Linq;
+﻿using System.Linq;
+using System.Xml.Linq;
 using static LINQ.InitializeData;
 
 namespace LINQ;
@@ -358,6 +359,44 @@ internal static class Queries
             {
                 Console.WriteLine($"  {prodItem.Name,-10} {prodItem.CategoryID}");
             }
+        }
+    }
+
+    public static void CrossJoinQuery()
+    {
+        var query =
+            from category in s_categories
+            from product in s_products
+            select new
+            {
+                category.ID,
+                product.Name
+            };
+        Console.WriteLine("Cross Join Query:");
+        foreach (var v in query)
+        {
+            Console.WriteLine($"{v.ID,-5}{v.Name}");
+        }
+    }
+
+    public static void NonEquiJoin()
+    {
+        // This query produces a sequence of all the products whose category ID is listed in the category list on the left side.
+        var query =
+            from product in s_products
+            let catID =
+            from category in s_categories
+            select category.ID
+            where catID.Contains(product.CategoryID)
+            select new
+            {
+                Product = product.Name,
+                product.CategoryID
+            };
+        Console.WriteLine("Non-equijoin query:");
+        foreach (var v in query)
+        {
+            Console.WriteLine($"{v.CategoryID,-5}{v.Product}");
         }
     }
 }
