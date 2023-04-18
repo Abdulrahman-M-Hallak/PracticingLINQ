@@ -1,3 +1,3 @@
-﻿namespace LINQ;
+﻿namespace LINQ.DTO;
 
-public record Category(string Name , int ID);
+public record Category(string Name, int ID);

@@ -1,4 +1,4 @@
-﻿namespace LINQ;
+﻿namespace LINQ.DTO;
 internal static class InitializeData
 {
     public static List<Person> s_people;
@@ -15,7 +15,7 @@ internal static class InitializeData
         Person charlotte = new("Charlotte", "Weiss");
         Person arlene = new("Arlene", "Huff");
         Person rui = new("Rui", "Raposo");
-        s_people= new List<Person>()
+        s_people = new List<Person>()
         {
             magnus, terry, charlotte, arlene, rui,
         };
@@ -95,7 +95,7 @@ internal static class InitializeData
             //new("Terry", "Adams", 9913),
         };
 
-        s_employees= new List<Employee>()
+        s_employees = new List<Employee>()
         {
             new(FirstName: "Terry", LastName: "Adams", EmployeeID: 522459),
             new("Charlotte", "Weiss", 204467),

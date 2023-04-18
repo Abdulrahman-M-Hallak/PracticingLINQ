@@ -1,4 +1,4 @@
-﻿namespace LINQ;
+﻿namespace LINQ.DTO;
 internal class Student
 {
     public string FirstName { get; set; }
