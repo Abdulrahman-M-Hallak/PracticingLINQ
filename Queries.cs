@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using LINQ.DTO;
 using System.Xml.Linq;
-using static LINQ.InitializeData;
+using static LINQ.DTO.InitializeData;
 
 namespace LINQ;
 internal static class Queries
@@ -210,6 +210,7 @@ internal static class Queries
             };
         foreach (var item in query1)
         {
+            Console.WriteLine(item.GetType());
             Console.WriteLine(item.OwnerName);
             foreach (var item1 in item.Pets)
             {

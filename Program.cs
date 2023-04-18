@@ -1,5 +1,5 @@
 ﻿using System.Xml.Linq;
-using static LINQ.InitializeData;
+using static LINQ.DTO.InitializeData;
 
 namespace LINQ;
 
@@ -31,7 +31,7 @@ internal class Program
         //Console.WriteLine("***************************************");
         //Queries.OrderJoinQueryResult();
         Console.WriteLine("Group join");
-        Queries.GroupJoin();
+        Queries.GroupJoin4();
         Console.WriteLine("Join");
         Queries.OrderJoinQueryResult();
         Console.WriteLine("*****************************************");
