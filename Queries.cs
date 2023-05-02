@@ -210,7 +210,6 @@ internal static class Queries
             };
         foreach (var item in query1)
         {
-            Console.WriteLine(item.GetType());
             Console.WriteLine(item.OwnerName);
             foreach (var item1 in item.Pets)
             {
@@ -225,17 +224,22 @@ internal static class Queries
             from category in s_categories
             join product in s_products on category.ID equals product.CategoryID into prodGroup
             select prodGroup;
+
         int totalItems = 0;
+
+        Console.WriteLine("Simple GroupJoin:");
+
+        // A nested foreach statement is required to access group items.
         foreach (var prodGrouping in query)
         {
             Console.WriteLine("Group:");
             foreach (var item in prodGrouping)
             {
                 totalItems++;
-                Console.WriteLine($"{item.Name,-10}{item.CategoryID}");
+                Console.WriteLine("   {0,-10}{1}", item.Name, item.CategoryID);
             }
         }
-        Console.WriteLine($"Unshaped GroupJoin: {totalItems} items in {query.Count()} unnamed groups");
+        Console.WriteLine("Unshaped GroupJoin: {0} items in {1} unnamed groups", totalItems, query.Count());
         Console.WriteLine(System.Environment.NewLine);
     }
 
@@ -248,7 +252,7 @@ internal static class Queries
             orderby prod.CategoryID
             select new
             {
-                Category = prod,
+                Category = prod.CategoryID,
                 ProductName = prod.Name
             };
         int totalItems = 0;

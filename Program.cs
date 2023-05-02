@@ -30,11 +30,21 @@ internal class Program
         //Queries.HighestScoreQuery();
         //Console.WriteLine("***************************************");
         //Queries.OrderJoinQueryResult();
-        Console.WriteLine("Group join");
+        //Console.WriteLine("Group join");
+        //Queries.GroupJoin4();
+        //Console.WriteLine("Join");
+        //Queries.OrderJoinQueryResult();
+        //Console.WriteLine("*****************************************");
+        //Queries.NonEquiJoin();
+        //Queries.CrossJoinQuery();
+        Queries.JoinQuery();
+        Console.WriteLine("****************************************************");
+        Queries.GroupJoin();
+        Console.WriteLine("******************************************");
+        Queries.GroupJoin2();
+        Console.WriteLine("********************************************");
+        Queries.GroupJoin3();
+        Console.WriteLine("********************");
         Queries.GroupJoin4();
-        Console.WriteLine("Join");
-        Queries.OrderJoinQueryResult();
-        Console.WriteLine("*****************************************");
-        Queries.NonEquiJoin();
     }
 }
